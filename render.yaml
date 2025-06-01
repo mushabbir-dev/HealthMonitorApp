@@ -2,10 +2,10 @@ services:
   - type: web
     name: health-monitor-backend
     env: python
+    plan: free
     buildCommand: ""
     startCommand: "python app.py"
     workingDir: backend
     envVars:
       - key: MONGO_URI
-        value: <mongodb+srv://mushabbirahmed99:LIofUe11vs3pvn4I@cluster0.vsiadwx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0>
-    plan: free
+        fromEnvVar: MONGO_URI
